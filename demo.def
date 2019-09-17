@@ -1,0 +1,105 @@
+# Demo def file for calculation of ortho photo. 
+#
+#
+# IMG is a tiff file. Uncompressed (tiled or untiled, 8 or 16 bit are all accepted) 
+IMG= C:\data\luftfoto\201382_1340_075_0896.tif
+
+# DTM to be used. Extension determines input. Valid options are... 
+# filename.dtt: Dot tin as created by terrasolid
+# filename.asc: Esri ASCII 
+# filename.csv : Grid with comma sepparated values. Example:
+#                DTM=c:\test.csv 4 5 6 
+#                line above will load a grid file with values in column 4, 5 and 6 (XYZ)
+# filename.txt: Text file with triangles.... TO BE CONTD.
+#
+
+DTM= C:\data\luftfoto\DTM_619_54.asc
+
+# Where to put the output ortho...
+ORT= C:\data\luftfoto\test_cir_10cm.tif
+
+# OPM is the output mode. Valid options are RGB, CIR, NDVI
+OPM= CIR
+
+# Resolution of output ortho image
+
+RES= 0.10
+
+# Top left coordinates. AUTO centers the image according to projection centre
+TLX= AUTO
+TLY= AUTO
+
+#Output ortho size in pixels
+
+SZX= 1000
+SZY= 1600
+
+# Interpolation. CUB is bicubic convolution, -1 is the parameter
+
+INT= CUB -1
+
+# Camera constant (principal distance) units m
+#
+CON= -0.0798
+
+# Matrix of interior orientation
+# For most modern digital photogrammetric cameras this has been calibrated to be 
+# symmetric. IL1 and IL2 will have [IL1= pixelsize 0] and [IL2= 0 -pixelsize]. Pixel-
+# sizes are in units mm
+# IL3 can be calculated as [IL3 = -(imagewidth/2) (imageheight/2)] in units mm.
+#
+# THE APPROACH ABOVE IS A RULE OF THUMB - ALWAYS REFER TO CALIBRATION REPORT
+#
+IL1= 0.0052 0.000
+IL2= 0.000 -0.0052
+IL3= -34.008 52.026
+
+#
+# Offset to the IL3 above (a PPS/PPA offset) can be applied with XDH= and YDH=
+# Most modern cameras have been calibrated to zero
+#
+# XDH= 0
+# YDH= 0
+
+#
+# Lens distortion can be input in two ways. Either as a 7 degree polynomium or
+# as a table. Most modern cameras have been calibrated to avoid this. 
+#
+# Use either...:
+# LDP= LA1 LA3 LA5 LA7
+#
+# or... DSI, DSD and DST ... All of the three mentioned must be present
+#
+# DSI= number of entries in lens distortion table
+# DSD= Distance between entries
+# DST= Values for distortion (+/-). There must be 0 to DSI entries
+#
+
+
+
+# Exterior orientation as it comes from either aerotriangulation or GPS/IMU 
+#
+# Please note the order of rotation is omega, phi, kappa (X, Y, Z)
+#
+
+# Projection centre
+X_0= 541034.488
+Y_0= 6194468.385
+Z_0= 1586.267
+
+# Units of rotation
+DRG= DEG
+
+# Omega, phi, kappa
+OME= -2.85570
+PHI= 1.06360
+KAP= -179.50810
+
+
+
+#
+# Running orto with paramters instead of this file... 
+#
+# orto -i C:\data\luftfoto\201382_1340_075_0896.tif -DTM C:\data\luftfoto\DTM_619_54.asc -o C:\data\luftfoto\test_cir_10cm.tif -OPM CIR -RES 0.10 -CON -0.0798 -TLX AUTO -TLY AUTO -SZX 1000 -SZY 1600 -IL1 0.0052 0.000 -IL2 0.000 -0.0052 -IL3 -34.008 52.026 -X_0 541034.488 -Y_0 6194468.385 -Z_0 1586.267 -DRG DEG -OME -2.85570 -PHI 1.06360 -KAP -179.50810 
+
+
