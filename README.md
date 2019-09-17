@@ -3,7 +3,7 @@ Small hack that makes ortho photos.
 
 ### WARNING
 
-###If you are starting from scratch to make orho photos you might be better off using a maintained project, for instance GRASS GIS or orfeo. This project is dormant, uses its own nomenclature, notation, only partly uses accepted standards, formats etc. Though this stuff works and I am happy to answer questions, NOW might be a good time to click on to the next new thing... Go on. I'm waiting... *
+#### If you are starting from scratch to make orho photos you might be better off using a maintained project, for instance GRASS GIS or orfeo. This project is dormant, uses its own nomenclature, notation, only partly uses accepted standards, formats etc. Though this stuff works and I am happy to answer questions, NOW might be a good time to click on to the next new thing... Go on. I'm waiting...
 
 Oh well. You stayed. At your own peril. Here goes...
 
