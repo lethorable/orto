@@ -77,6 +77,7 @@ def main(args):
 	' -Y_0 '+pargs.Y_0+\
 	' -Z_0 '+pargs.Z_0+\
 	' -DRG '+pargs.DRG+\
+	' -OME '+pargs.OME+\
 	' -PHI '+pargs.PHI+\
 	' -KAP '+pargs.KAP
 	call(callstr)
